@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ndaje, la visioconférence souveraine d'e-jàng</title>
+<meta name="description" content="Une salle de visioconférence intégrée à une plateforme Moodle nationale, sans serveur de visioconférence, sans abonnement, sans compte chez un tiers, avec enregistrement conservé dans le cours.">
+<style>
+  :root {
+    --bleu: #164F9E;
+    --marine: #123674;
+    --or: #E4BB38;
+    --texte: #1b2733;
+    --doux: #5b6b80;
+    --fond: #ffffff;
+    --bord: #e2e8f0;
+    --gris: #f6f8fb;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: var(--texte);
+    background: var(--fond);
+    line-height: 1.6;
+  }
+  .bandeau {
+    background: linear-gradient(105deg, #0f2d61 0%, var(--marine) 45%, var(--bleu) 100%);
+    color: #fff;
+    padding: 3.5rem 1.5rem 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .bandeau::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px;
+    background: linear-gradient(90deg, var(--or) 0%, #FFD966 45%, transparent 100%);
+  }
+  .dedans { max-width: 940px; margin: 0 auto; }
+  .surtitre {
+    margin: 0 0 .4rem; font-size: .8rem; letter-spacing: .1em;
+    text-transform: uppercase; color: #FFD966;
+  }
+  h1 { margin: 0 0 .8rem; font-size: 2.3rem; line-height: 1.15; font-weight: 700; }
+  .chapo { margin: 0; font-size: 1.08rem; opacity: .93; max-width: 42rem; }
+  main { max-width: 940px; margin: 0 auto; padding: 0 1.5rem 4rem; }
+  section { padding: 2.6rem 0 .6rem; }
+  h2 {
+    font-size: 1.4rem; color: var(--marine); margin: 0 0 1rem;
+    padding-bottom: .5rem; border-bottom: 2px solid var(--or); display: inline-block;
+  }
+  h3 { font-size: 1.05rem; color: var(--marine); margin: 1.6rem 0 .5rem; }
+  p { margin: 0 0 1rem; }
+  .encart {
+    background: var(--gris); border-left: 3px solid var(--bleu);
+    padding: 1.1rem 1.3rem; border-radius: 0 10px 10px 0; margin: 1.4rem 0;
+  }
+  .encart p:last-child { margin-bottom: 0; }
+  figure { margin: 1.8rem 0; }
+  figure img {
+    width: 100%; height: auto; display: block;
+    border: 1px solid var(--bord); border-radius: 12px;
+    box-shadow: 0 2px 14px rgba(18, 54, 116, .09);
+  }
+  figcaption { margin-top: .6rem; font-size: .85rem; color: var(--doux); text-align: center; }
+  .grille { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+  .carte { border: 1px solid var(--bord); border-radius: 12px; padding: 1.1rem 1.2rem; }
+  .carte .n { font-size: 1.9rem; font-weight: 700; color: var(--marine); line-height: 1; }
+  .carte .l { font-size: .87rem; color: var(--doux); margin-top: .4rem; display: block; }
+  pre {
+    background: #0f2038; color: #dbe6f5; padding: 1rem 1.1rem; border-radius: 10px;
+    overflow-x: auto; font-size: .82rem; line-height: 1.5;
+  }
+  table { width: 100%; border-collapse: collapse; margin: 1.2rem 0; font-size: .93rem; }
+  th, td { text-align: left; padding: .6rem .7rem; border-bottom: 1px solid var(--bord); vertical-align: top; }
+  th { color: var(--marine); font-weight: 600; }
+  .pied {
+    border-top: 1px solid var(--bord); margin-top: 2.5rem; padding-top: 1.4rem;
+    font-size: .85rem; color: var(--doux);
+  }
+  .avert {
+    background: #fff8e6; border: 1px solid #f0d999; border-radius: 10px;
+    padding: 1rem 1.2rem; font-size: .9rem; margin: 1.6rem 0;
+  }
+  .evitement { position: absolute; left: -999px; top: 0; background: #fff; color: var(--marine); padding: .5rem 1rem; z-index: 10; }
+  .evitement:focus { left: 1rem; top: 1rem; }
+  .defilant { overflow-x: auto; }
+  @media (max-width: 640px) {
+    h1 { font-size: 1.7rem; }
+    .bandeau { padding: 2.4rem 1.2rem 2rem; }
+    table { font-size: .85rem; }
+  }
+</style>
+</head>
+<body>
+<a href="#contenu" class="evitement">Aller au contenu</a>
+
+<header class="bandeau">
+  <div class="dedans">
+    <p class="surtitre">Étude de cas en souveraineté numérique</p>
+    <h1>Ndaje, la visioconférence qui ne dépend de personne</h1>
+    <p class="chapo">Une salle de classe virtuelle intégrée à <strong>e-jàng</strong>, la plateforme nationale de formation à distance du ministère de la Formation professionnelle et technique du Sénégal : sans serveur de visioconférence, sans abonnement, sans compte chez un tiers et avec des enregistrements qui restent dans le cours.</p>
+  </div>
+</header>
+
+<main id="contenu">
+
+<section>
+  <h2>Le problème</h2>
+  <p>La plateforme proposait deux outils de classe virtuelle, tous deux empruntés. Le premier reposait sur le serveur de démonstration d'un éditeur, bridé et annoncé en fin de vie. Le second coupait toute réunion au bout de cinq minutes tant qu'un abonnement n'était pas souscrit. L'alternative, héberger soi-même un serveur de visioconférence, exige une machine dédiée dont le coût et l'exploitation étaient hors de portée.</p>
+  <p>La demande de la direction tenait en une phrase : nous dépendons de ressources propriétaires que nous n'avons pas les moyens de payer, il nous faut une solution souveraine qui permette aux formateurs de faire leurs visioconférences dans leurs cours sans se tracasser.</p>
+</section>
+
+<section>
+  <h2>Le principe retenu</h2>
+  <div class="encart">
+    <p><strong>Un navigateur moderne sait déjà tout faire</strong> : capter la caméra et le micro, partager l'écran, parler à un autre navigateur en direct et enregistrer une vidéo. Ce qui manque d'ordinaire, c'est un point de rendez-vous pour que les navigateurs se trouvent, et un lieu où conserver les enregistrements. La plateforme fournit les deux.</p>
+  </div>
+  <p>Les flux audio et vidéo circulent directement de navigateur à navigateur, chiffrés par construction, sans jamais transiter par le serveur de la plateforme, qui ne porte donc aucune charge média. L'enregistrement est produit sur le poste du formateur et déposé au fil de l'eau dans les fichiers de son cours, par morceaux de dix secondes : une coupure n'emporte pas ce qui a déjà été déposé.</p>
+  <p>Aucun composant n'est à installer sur le serveur, aucun port à ouvrir, aucun contrat à signer. Sur le réseau local d'un établissement, la salle fonctionne même sans accès à Internet.</p>
+</section>
+
+<section>
+  <h2>La salle, telle que la voit le formateur</h2>
+  <figure>
+    <img src="images/ndaje_salle.jpg" alt="La salle Ndaje sur la plateforme : vidéo principale, panneau des participants et chat">
+    <figcaption>La salle sur la plateforme, caméra coupée : vue principale, participants et chat. Le nom affiché est fictif.</figcaption>
+  </figure>
+  <figure>
+    <img src="images/ndaje_commandes.jpg" alt="La barre de commandes de la salle : micro, caméra, écran, main levée, participants, chat, enregistrement, couper les micros, fermer, quitter">
+    <figcaption>La barre de commandes du formateur : dix gestes, tous nommés en toutes lettres.</figcaption>
+  </figure>
+  <p>Le formateur ajoute l'activité dans son cours en trois champs, ouvre la salle d'un clic et conduit sa séance avec les gestes attendus : micro, caméra, partage d'écran, mains levées, chat, coupure générale des micros, autorisation d'une caméra, sortie d'un participant, enregistrement, fermeture. Par défaut, les apprenants entrent caméra coupée et micro fermé : c'est le mode classe, qui économise la connexion de tous.</p>
+</section>
+
+<section>
+  <h2>Les enregistrements restent dans le cours</h2>
+  <figure>
+    <img src="images/ndaje_accueil.jpg" alt="La page de l'activité : consigne, bouton d'entrée et liste des enregistrements avec un lecteur vidéo">
+    <figcaption>La page de l'activité, avec un enregistrement de séance lisible directement dans le cours.</figcaption>
+  </figure>
+  <p>Chaque enregistrement apparaît sous la salle, avec sa date, sa durée et son poids ; il se lit sans rien installer. Le formateur le renomme ou le supprime ; les apprenants le revoient. La séance enregistrée pèse environ quatre mégaoctets par minute en qualité basse, ce qui a été choisi comme réglage par défaut.</p>
+</section>
+
+<section>
+  <h2>Ce qu'il faut dire plutôt que cacher</h2>
+  <div class="defilant">
+  <table>
+    <tr><th scope="col">Limite</th><th scope="col">Pourquoi</th><th scope="col">Ce qui est fait</th></tr>
+    <tr><td>Six à douze participants confortables</td><td>chaque participant envoie son flux à chacun des autres</td><td>mode classe par défaut, plafond réglable, avertissement au-delà</td></tr>
+    <tr><td>Certains réseaux mobiles empêchent la liaison directe</td><td>c'est la contrepartie de l'absence de serveur relais</td><td>message explicite, le chat reste disponible, un relais pourra être ajouté par simple réglage</td></tr>
+    <tr><td>L'enregistrement dépend du poste du formateur</td><td>c'est lui qui le produit</td><td>dépôt au fil de l'eau, consolidation automatique de ce qui a été reçu en cas de coupure</td></tr>
+  </table>
+  </div>
+  <p>Ces limites sont écrites dans le guide du formateur et dans la fiche projetée aux apprenants. Un outil souverain se juge aussi à l'honnêteté de sa documentation.</p>
+</section>
+
+<section>
+  <h2>Comment il a été construit</h2>
+  <p>En trois sprints, avec une équipe multidisciplinaire : un cadrage qui fixe d'abord le contrat d'interfaces entre les lots, puis trois lots construits en parallèle (le dos de la plateforme, la façade de la salle, l'ingénierie pédagogique et ses guides), puis l'intégration, la recette et la revue de sécurité.</p>
+  <div class="grille">
+    <div class="carte"><span class="n">3</span><span class="l">sprints, du cadrage au paquet installable</span></div>
+    <div class="carte"><span class="n">47</span><span class="l">contrôles automatiques rejoués à chaque correctif</span></div>
+    <div class="carte"><span class="n">18</span><span class="l">gestes du parcours formateur et apprenant rejoués à deux navigateurs</span></div>
+    <div class="carte"><span class="n">4</span><span class="l">correctifs exigés par la revue de sécurité, appliqués avant tout dépôt</span></div>
+  </div>
+
+  <h3>Une maquette qui parle toute seule</h3>
+  <p>Avant toute intégration, la façade de la salle a été éprouvée dans une maquette autonome où deux onglets d'un même navigateur se connectent réellement entre eux, sans plateforme. Deux défauts de liaison y ont été trouvés et corrigés avant qu'aucune ligne ne touche la plateforme.</p>
+
+  <h3>Une revue de sécurité adversariale</h3>
+  <p>La revue a cherché ce que la recette fonctionnelle ne voit pas : ce qu'un participant inscrit mais malveillant pourrait faire depuis sa console. Elle a trouvé un défaut bloquant, l'absence de limite au volume des échanges techniques, et trois défauts importants. Tous ont été corrigés et contredits par des témoins négatifs avant la mise en service.</p>
+</section>
+
+<section>
+  <h2>Ce que ce travail ne montre pas</h2>
+  <div class="avert">
+    <p><strong>Aucun code source, aucun paquet, aucun nom réel.</strong> Les captures sont prises sur la plateforme elle-même, dans une salle d'essai ; le nom de la personne affichée est fictif. Le code porte la structure d'un système d'information public et n'a pas vocation à circuler. Aucun chiffre d'usage de la plateforme n'est publié ici.</p>
+    <p>Ce qui est présenté est le <strong>principe</strong> : une plateforme d'apprentissage peut porter sa propre visioconférence sans dépendre d'un éditeur, dès lors qu'elle se contente d'être le point de rendez-vous des navigateurs et le coffre des enregistrements. Il vaut pour toute plateforme Moodle.</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="pied dedans" style="padding: 0 1.5rem 2rem;">
+  <p>Dispositif conçu au sein de la Direction des Curricula et des Innovations Pédagogiques, ministère de la Formation professionnelle et technique du Sénégal. Mise en service en novembre 2026, en pilote.</p>
+  <p><strong>Oumar SALL</strong>, technopédagogue et ingénieur pédagogique. Voir les <a href="https://oumarsall3.github.io/" style="color: var(--bleu);">autres réalisations</a> ou le <a href="https://github.com/oumarsall3/ndaje-ejang" style="color: var(--bleu);">dépôt de présentation</a>.</p>
+</footer>
+</body>
+</html>
