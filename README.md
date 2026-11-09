@@ -35,7 +35,9 @@ Les enregistrements de séance apparaissent sous la salle et se lisent dans le c
 - **🎓 Mode classe** : les apprenants entrent caméra coupée et micro fermé ; le formateur ouvre la parole et autorise les caméras une à une. C'est ce qui ménage la connexion de tous.
 - **🎥 Enregistrement qui survit aux coupures** : produit sur le poste du formateur, déposé par morceaux de dix secondes dans les fichiers du cours, consolidé automatiquement si la séance s'interrompt.
 - **🧰 Rien à installer sur le serveur** : aucun port, aucun composant, aucun contrat ; sur le réseau local d'un établissement, la salle fonctionne même sans Internet.
-- **🗣️ Des limites dites plutôt que cachées** : six à douze participants confortables, puis certains réseaux mobiles qui empêchent la liaison directe. Le guide du formateur le dit en premier.
+- **🎯 Un périmètre assumé** : la classe virtuelle sans infrastructure, pour les réunions de formateurs, l'accompagnement des référents, l'inspection, le pilotage et les petits groupes équipés. Pas pour les classes de trente à cent apprenants, que seul un serveur de diffusion peut servir.
+- **🗣️ Des limites dites plutôt que cachées** : six à douze participants confortables, puis certains réseaux mobiles qui empêchent la liaison directe. Un relais TURN règle ce dernier cas au prix d'une machine à administrer et d'une bande passante à financer, pas d'un simple réglage. Le guide du formateur le dit en premier.
+- **🧭 Une trajectoire connue** : le jour où une machine de l'État existe, un relais TURN puis un serveur de diffusion libre (Jitsi ou Galène, en SFU) pour les grands groupes ; Ndaje reste l'outil des petits groupes et des établissements sans accès extérieur.
 
 ---
 
@@ -53,7 +55,7 @@ La page de présentation détaillée est disponible ici : **https://oumarsall3.g
 
 ## À propos de ce dépôt
 
-Ce dépôt **présente** le dispositif et son principe. Il ne publie volontairement **ni son code source**, qui porte la structure d'un système d'information public, **ni son paquet d'installation**, ni aucun chiffre d'usage de la plateforme.
+Ce dépôt **présente** le dispositif et son principe. Il ne publie volontairement **ni son code source**, qui porte la structure d'un système d'information public, **ni son paquet d'installation**, ni aucun chiffre d'usage de la plateforme. Les éléments de recette et de revue de sécurité ne sont donc pas vérifiables publiquement ; ils sont communicables à toute instance de l'État qui le demande.
 
 Ce qui est présenté ici est le principe : une plateforme d'apprentissage peut porter sa propre visioconférence sans dépendre d'un éditeur. Il vaut pour toute plateforme Moodle.
 

@@ -113,10 +113,12 @@
 <section>
   <h2>Le principe retenu</h2>
   <div class="encart">
-    <p><strong>Un navigateur moderne sait déjà tout faire</strong> : capter la caméra et le micro, partager l'écran, parler à un autre navigateur en direct et enregistrer une vidéo. Ce qui manque d'ordinaire, c'est un point de rendez-vous pour que les navigateurs se trouvent, et un lieu où conserver les enregistrements. La plateforme fournit les deux.</p>
+    <p><strong>Un navigateur moderne sait déjà tout faire</strong> : capter la caméra et le micro, partager l'écran, parler à un autre navigateur en direct et enregistrer une vidéo. Ce qui manque d'ordinaire, c'est un point de rendez-vous pour que les navigateurs se trouvent ainsi qu'un lieu où conserver les enregistrements. La plateforme fournit les deux.</p>
   </div>
   <p>Les flux audio et vidéo circulent directement de navigateur à navigateur, chiffrés par construction, sans jamais transiter par le serveur de la plateforme, qui ne porte donc aucune charge média. L'enregistrement est produit sur le poste du formateur et déposé au fil de l'eau dans les fichiers de son cours, par morceaux de dix secondes : une coupure n'emporte pas ce qui a déjà été déposé.</p>
   <p>Aucun composant n'est à installer sur le serveur, aucun port à ouvrir, aucun contrat à signer. Sur le réseau local d'un établissement, la salle fonctionne même sans accès à Internet.</p>
+  <h3>Ce qu'il est, ce qu'il n'est pas</h3>
+  <p>Ndaje est la classe virtuelle <strong>sans infrastructure</strong> : réunions de formateurs, accompagnement des référents, séances d'inspection, pilotage, petits groupes d'apprenants équipés. Il ne vise pas les classes de trente à cent apprenants, que seul un serveur de diffusion peut servir. Il est la réponse à l'absence de serveur, pas le choix d'un serveur.</p>
 </section>
 
 <section>
@@ -147,11 +149,13 @@
   <table>
     <tr><th scope="col">Limite</th><th scope="col">Pourquoi</th><th scope="col">Ce qui est fait</th></tr>
     <tr><td>Six à douze participants confortables</td><td>chaque participant envoie son flux à chacun des autres</td><td>mode classe par défaut, plafond réglable, avertissement au-delà</td></tr>
-    <tr><td>Certains réseaux mobiles empêchent la liaison directe</td><td>c'est la contrepartie de l'absence de serveur relais</td><td>message explicite, le chat reste disponible, un relais pourra être ajouté par simple réglage</td></tr>
+    <tr><td>Certains réseaux mobiles empêchent la liaison directe</td><td>c'est la contrepartie de l'absence de serveur relais</td><td>message explicite, le chat reste disponible ; un relais TURN règle ce cas au prix d'une machine à administrer et d'une bande passante à financer, pas d'un simple réglage</td></tr>
     <tr><td>L'enregistrement dépend du poste du formateur</td><td>c'est lui qui le produit</td><td>dépôt au fil de l'eau, consolidation automatique de ce qui a été reçu en cas de coupure</td></tr>
   </table>
   </div>
   <p>Ces limites sont écrites dans le guide du formateur et dans la fiche projetée aux apprenants. Un outil souverain se juge aussi à l'honnêteté de sa documentation.</p>
+  <h3>La trajectoire</h3>
+  <p>Le jour où l'État met une machine à disposition, la suite est connue : un relais TURN pour les réseaux difficiles, puis un serveur de diffusion libre et éprouvé (Jitsi ou Galène, en SFU) pour les grands groupes. Jitsi auto-hébergé avait été examiné dès le départ ; il a été écarté non pour sa qualité mais parce qu'il suppose un serveur et un administrateur qui n'existaient pas. Ndaje resterait alors l'outil des petits groupes et des établissements sans accès extérieur. La souveraineté ne tient pas à l'absence de serveur mais à la maîtrise de celui qu'on utilise.</p>
 </section>
 
 <section>
@@ -168,13 +172,13 @@
   <p>Avant toute intégration, la façade de la salle a été éprouvée dans une maquette autonome où deux onglets d'un même navigateur se connectent réellement entre eux, sans plateforme. Deux défauts de liaison y ont été trouvés et corrigés avant qu'aucune ligne ne touche la plateforme.</p>
 
   <h3>Une revue de sécurité adversariale</h3>
-  <p>La revue a cherché ce que la recette fonctionnelle ne voit pas : ce qu'un participant inscrit mais malveillant pourrait faire depuis sa console. Elle a trouvé un défaut bloquant, l'absence de limite au volume des échanges techniques, et trois défauts importants. Tous ont été corrigés et contredits par des témoins négatifs avant la mise en service.</p>
+  <p>La revue a cherché ce que la recette fonctionnelle ne voit pas : ce qu'un participant inscrit mais malveillant pourrait faire depuis sa console. Elle a trouvé un défaut bloquant, l'absence de limite au volume des échanges techniques, puis trois défauts importants. Tous ont été corrigés et contredits par des témoins négatifs avant la mise en service.</p>
 </section>
 
 <section>
   <h2>Ce que ce travail ne montre pas</h2>
   <div class="avert">
-    <p><strong>Aucun code source, aucun paquet, aucun nom réel.</strong> Les captures sont prises sur la plateforme elle-même, dans une salle d'essai ; le nom de la personne affichée est fictif. Le code porte la structure d'un système d'information public et n'a pas vocation à circuler. Aucun chiffre d'usage de la plateforme n'est publié ici.</p>
+    <p><strong>Aucun code source, aucun paquet, aucun nom réel.</strong> Les captures sont prises sur la plateforme elle-même, dans une salle d'essai ; le nom de la personne affichée est fictif. Le code porte la structure d'un système d'information public et n'a pas vocation à circuler. Aucun chiffre d'usage de la plateforme n'est publié ici. Les éléments de recette et de revue de sécurité cités sur cette page ne sont donc pas vérifiables publiquement : ils sont communicables à toute instance de l'État qui le demande.</p>
     <p>Ce qui est présenté est le <strong>principe</strong> : une plateforme d'apprentissage peut porter sa propre visioconférence sans dépendre d'un éditeur, dès lors qu'elle se contente d'être le point de rendez-vous des navigateurs et le coffre des enregistrements. Il vaut pour toute plateforme Moodle.</p>
   </div>
 </section>
