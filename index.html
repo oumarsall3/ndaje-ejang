@@ -98,7 +98,7 @@
   <div class="dedans">
     <p class="surtitre">Étude de cas en souveraineté numérique</p>
     <h1>Ndaje, la visioconférence qui ne dépend de personne</h1>
-    <p class="chapo">Une salle de classe virtuelle intégrée à <strong>e-jàng</strong>, la plateforme nationale de formation à distance du ministère de la Formation professionnelle et technique du Sénégal : sans serveur de visioconférence, sans abonnement, sans compte chez un tiers et avec des enregistrements qui restent dans le cours.</p>
+    <p class="chapo">Une salle de classe virtuelle intégrée à <strong>e-jàng</strong>, la plateforme nationale de formation à distance du ministère de la Formation professionnelle et technique du Sénégal : sans serveur de visioconférence, sans abonnement, sans compte chez un tiers et avec des enregistrements qui restent dans le cours. Version 0.2 depuis le 11 novembre 2026 : une salle pour la dizaine, des gradins pour la centaine.</p>
   </div>
 </header>
 
@@ -118,7 +118,28 @@
   <p>Les flux audio et vidéo circulent directement de navigateur à navigateur, chiffrés par construction, sans jamais transiter par le serveur de la plateforme, qui ne porte donc aucune charge média. L'enregistrement est produit sur le poste du formateur et déposé au fil de l'eau dans les fichiers de son cours, par morceaux de dix secondes : une coupure n'emporte pas ce qui a déjà été déposé.</p>
   <p>Aucun composant n'est à installer sur le serveur, aucun port à ouvrir, aucun contrat à signer. Sur le réseau local d'un établissement, la salle fonctionne même sans accès à Internet.</p>
   <h3>Ce qu'il est, ce qu'il n'est pas</h3>
-  <p>Ndaje est la classe virtuelle <strong>sans infrastructure</strong> : réunions de formateurs, accompagnement des référents, séances d'inspection, pilotage, petits groupes d'apprenants équipés. Il ne vise pas les classes de trente à cent apprenants, que seul un serveur de diffusion peut servir. Il est la réponse à l'absence de serveur, pas le choix d'un serveur.</p>
+  <p>Ndaje est la classe virtuelle <strong>sans infrastructure</strong> : réunions de formateurs, accompagnement des référents, séances d'inspection, pilotage, petits groupes d'apprenants équipés. Il est la réponse à l'absence de serveur, pas le choix d'un serveur. La version 0.2 lui ajoute un second mode pour les grands groupes, présenté plus bas.</p>
+</section>
+
+<section>
+  <h2>Version 0.2 : la scène et les gradins</h2>
+  <p>Une relecture critique de la première version l'avait dit sans détour : la liaison directe entre navigateurs ne tient pas au-delà d'une dizaine de personnes, or les webinaires et les séances d'information en réunissent bien davantage. La direction a demandé d'aller vers la centaine, puis le millier, <strong>sans aucun nouvel investissement matériel</strong>, en utilisant ce qui existe déjà : le serveur de la plateforme et les postes des participants.</p>
+  <div class="encart">
+    <p><strong>La scène</strong> reste la salle directe de la première version, pour l'animateur et jusqu'à huit intervenants. <strong>Les gradins</strong> accueillent tous les autres : le navigateur de l'animateur découpe la scène en morceaux de deux secondes et les dépose sur la plateforme, dont le serveur web les sert comme de simples fichiers, sans calcul. Chaque participant des gradins les lit avec quelques secondes de retard, écrit dans le chat, lève la main et peut être invité sur la scène pour parler.</p>
+  </div>
+  <figure>
+    <img src="images/ndaje_gradins.jpg" alt="Le panneau de l'animateur, gradins ouverts : compteurs de la scène, des gradins et des mains levées, boutons pour fermer les gradins, baisser les mains et changer la clé de diffusion">
+    <figcaption>Le panneau de l'animateur, gradins ouverts, sur la plateforme. Le nom affiché est fictif.</figcaption>
+  </figure>
+  <p>Trois choix de réception laissent chacun suivre selon son réseau : la vidéo, la voix seule pour les connexions faibles, ou la voix avec une image fixe de l'écran. L'enregistrement est assemblé par le serveur à partir des morceaux diffusés. La clé de diffusion change à chaque exclusion ; l'animateur peut la renouveler à tout moment.</p>
+  <div class="grille">
+    <div class="carte"><span class="n">0,25 s</span><span class="l">pour qu'un participant arrivé en cours de séance voie l'image</span></div>
+    <div class="carte"><span class="n">100</span><span class="l">lecteurs simulés sur le banc, sans aucune erreur</span></div>
+    <div class="carte"><span class="n">1 000</span><span class="l">morceaux diffusés sans interruption en une séance d'essai de 34 minutes</span></div>
+    <div class="carte"><span class="n">119</span><span class="l">contrôles automatiques réussis avant la mise en service</span></div>
+  </div>
+  <p>Trois experts ont instruit le choix avant toute ligne de code : une étude d'architecture comparant cinq options, une maquette mesurée de faisabilité, un relevé du serveur en lecture seule. Le relais en arbre entre participants, séduisant sur le papier, a été écarté par le calcul : un participant sur cinq ne peut pas relayer derrière son opérateur mobile ; chaque départ couperait toute une branche.</p>
+  <p><strong>Ce que la version 0.2 ne promet pas.</strong> Le retard des gradins est de cinq à douze secondes, pas de trois. La capacité réelle du serveur se constatera en pilote, par paliers de vingt, cinquante puis cent personnes, plutôt que sur le papier. Le millier viendra avec l'entraide entre postes d'un même établissement, prévue pour la version suivante.</p>
 </section>
 
 <section>
@@ -148,19 +169,20 @@
   <div class="defilant">
   <table>
     <tr><th scope="col">Limite</th><th scope="col">Pourquoi</th><th scope="col">Ce qui est fait</th></tr>
-    <tr><td>Six à douze participants confortables</td><td>chaque participant envoie son flux à chacun des autres</td><td>mode classe par défaut, plafond réglable, avertissement au-delà</td></tr>
+    <tr><td>Six à douze participants confortables en salle</td><td>chaque participant envoie son flux à chacun des autres</td><td>mode classe par défaut, plafond réglable ; au-delà, le mode scène et gradins</td></tr>
+    <tr><td>Dans les gradins, la séance transite par la plateforme</td><td>c'est le serveur web qui sert les morceaux</td><td>avertissement à l'animateur à l'ouverture des gradins ; mode réservé aux séances ouvertes</td></tr>
     <tr><td>Certains réseaux mobiles empêchent la liaison directe</td><td>c'est la contrepartie de l'absence de serveur relais</td><td>message explicite, le chat reste disponible ; un relais TURN règle ce cas au prix d'une machine à administrer et d'une bande passante à financer, pas d'un simple réglage</td></tr>
     <tr><td>L'enregistrement dépend du poste du formateur</td><td>c'est lui qui le produit</td><td>dépôt au fil de l'eau, consolidation automatique de ce qui a été reçu en cas de coupure</td></tr>
   </table>
   </div>
   <p>Ces limites sont écrites dans le guide du formateur et dans la fiche projetée aux apprenants. Un outil souverain se juge aussi à l'honnêteté de sa documentation.</p>
   <h3>La trajectoire</h3>
-  <p>Le jour où l'État met une machine à disposition, la suite est connue : un relais TURN pour les réseaux difficiles, puis un serveur de diffusion libre et éprouvé (Jitsi ou Galène, en SFU) pour les grands groupes. Jitsi auto-hébergé avait été examiné dès le départ ; il a été écarté non pour sa qualité mais parce qu'il suppose un serveur et un administrateur qui n'existaient pas. Ndaje resterait alors l'outil des petits groupes et des établissements sans accès extérieur. La souveraineté ne tient pas à l'absence de serveur mais à la maîtrise de celui qu'on utilise.</p>
+  <p>Sans machine nouvelle, la suite est l'entraide entre postes d'un même établissement, qui se passeront les morceaux sur leur réseau local au lieu de les demander chacun au serveur. Le jour où l'État met une machine à disposition, viendront un relais TURN pour les réseaux difficiles, puis un serveur de diffusion libre et éprouvé (Jitsi ou Galène, en SFU) pour la scène elle-même. Jitsi auto-hébergé avait été examiné dès le départ ; il a été écarté non pour sa qualité mais parce qu'il suppose un serveur et un administrateur qui n'existaient pas. Ndaje resterait alors l'outil des petits groupes et des établissements sans accès extérieur. La souveraineté ne tient pas à l'absence de serveur mais à la maîtrise de celui qu'on utilise.</p>
 </section>
 
 <section>
   <h2>Comment il a été construit</h2>
-  <p>En trois sprints, avec une équipe multidisciplinaire : un cadrage qui fixe d'abord le contrat d'interfaces entre les lots, puis trois lots construits en parallèle (le dos de la plateforme, la façade de la salle, l'ingénierie pédagogique et ses guides), puis l'intégration, la recette et la revue de sécurité.</p>
+  <p>En sprints courts, avec une équipe multidisciplinaire : un cadrage qui fixe d'abord le contrat d'interfaces entre les lots, puis des lots construits en parallèle (le dos de la plateforme, la façade de la salle, celle des gradins pour la 0.2, l'ingénierie pédagogique et ses guides), puis l'intégration, la recette et la revue de sécurité. Les chiffres ci-dessous sont ceux de la première version.</p>
   <div class="grille">
     <div class="carte"><span class="n">3</span><span class="l">sprints, du cadrage au paquet installable</span></div>
     <div class="carte"><span class="n">47</span><span class="l">contrôles automatiques rejoués à chaque correctif</span></div>
@@ -172,7 +194,7 @@
   <p>Avant toute intégration, la façade de la salle a été éprouvée dans une maquette autonome où deux onglets d'un même navigateur se connectent réellement entre eux, sans plateforme. Deux défauts de liaison y ont été trouvés et corrigés avant qu'aucune ligne ne touche la plateforme.</p>
 
   <h3>Une revue de sécurité adversariale</h3>
-  <p>La revue a cherché ce que la recette fonctionnelle ne voit pas : ce qu'un participant inscrit mais malveillant pourrait faire depuis sa console. Elle a trouvé un défaut bloquant, l'absence de limite au volume des échanges techniques, puis trois défauts importants. Tous ont été corrigés et contredits par des témoins négatifs avant la mise en service.</p>
+  <p>La revue a cherché ce que la recette fonctionnelle ne voit pas : ce qu'un participant inscrit mais malveillant pourrait faire depuis sa console. Elle a trouvé un défaut bloquant, l'absence de limite au volume des échanges techniques, puis trois défauts importants. Tous ont été corrigés et contredits par des témoins négatifs avant la mise en service. La même revue a été refaite pour la 0.2 : elle a trouvé qu'un participant des gradins pouvait ouvrir une liaison cachée avec la scène, défaut corrigé avec trois autres avant le dépôt.</p>
 </section>
 
 <section>
@@ -186,7 +208,7 @@
 </main>
 
 <footer class="pied dedans" style="padding: 0 1.5rem 2rem;">
-  <p>Dispositif conçu au sein de la Direction des Curricula et des Innovations Pédagogiques, ministère de la Formation professionnelle et technique du Sénégal. Mise en service en novembre 2026, en pilote.</p>
+  <p>Dispositif conçu au sein de la Direction des Curricula et des Innovations Pédagogiques, ministère de la Formation professionnelle et technique du Sénégal. Version 0.1 mise en service le 8 novembre 2026, version 0.2 le 11 novembre 2026, en pilote.</p>
   <p><strong>Oumar SALL</strong>, technopédagogue et ingénieur pédagogique. Voir les <a href="https://oumarsall3.github.io/" style="color: var(--bleu);">autres réalisations</a> ou le <a href="https://github.com/oumarsall3/ndaje-ejang" style="color: var(--bleu);">dépôt de présentation</a>.</p>
 </footer>
 </body>

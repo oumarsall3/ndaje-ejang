@@ -6,7 +6,7 @@ Salle de classe virtuelle intégrée à **e-jàng**, la plateforme nationale de 
 
 Conçu au sein de la **Direction des Curricula et des Innovations Pédagogiques (DCIP)**.
 
-> 🟡 **En pilote** depuis novembre 2026 sur la plateforme.
+> 🟡 **En pilote** sur la plateforme : version 0.1 depuis le 8 novembre 2026, **version 0.2 « scène et gradins » depuis le 11 novembre 2026**.
 
 ---
 
@@ -24,6 +24,10 @@ Dix gestes nommés en toutes lettres : micro, caméra, écran, main levée, part
 
 Les enregistrements de séance apparaissent sous la salle et se lisent dans le cours.
 
+![Le panneau de l'animateur, gradins ouverts](images/ndaje_gradins.jpg)
+
+Version 0.2 : le panneau de l'animateur quand les gradins sont ouverts, avec les compteurs de la scène, des gradins et des mains levées.
+
 *Captures prises sur la plateforme elle-même, dans une salle d'essai. Aucun chiffre d'usage n'est publié.*
 
 ---
@@ -35,15 +39,18 @@ Les enregistrements de séance apparaissent sous la salle et se lisent dans le c
 - **🎓 Mode classe** : les apprenants entrent caméra coupée et micro fermé ; le formateur ouvre la parole et autorise les caméras une à une. C'est ce qui ménage la connexion de tous.
 - **🎥 Enregistrement qui survit aux coupures** : produit sur le poste du formateur, déposé par morceaux de dix secondes dans les fichiers du cours, consolidé automatiquement si la séance s'interrompt.
 - **🧰 Rien à installer sur le serveur** : aucun port, aucun composant, aucun contrat ; sur le réseau local d'un établissement, la salle fonctionne même sans Internet.
-- **🎯 Un périmètre assumé** : la classe virtuelle sans infrastructure, pour les réunions de formateurs, l'accompagnement des référents, l'inspection, le pilotage et les petits groupes équipés. Pas pour les classes de trente à cent apprenants, que seul un serveur de diffusion peut servir.
-- **🗣️ Des limites dites plutôt que cachées** : six à douze participants confortables, puis certains réseaux mobiles qui empêchent la liaison directe. Un relais TURN règle ce dernier cas au prix d'une machine à administrer et d'une bande passante à financer, pas d'un simple réglage. Le guide du formateur le dit en premier.
-- **🧭 Une trajectoire connue** : le jour où une machine de l'État existe, un relais TURN puis un serveur de diffusion libre (Jitsi ou Galène, en SFU) pour les grands groupes ; Ndaje reste l'outil des petits groupes et des établissements sans accès extérieur.
+- **🏟️ Scène et gradins (version 0.2)** : pour les grands groupes, l'animateur et jusqu'à huit intervenants restent en liaison directe sur la scène ; tous les autres suivent dans les gradins, avec quelques secondes de retard, à partir de morceaux de deux secondes que le serveur web de la plateforme sert comme de simples fichiers. Chat, main levée, invitation sur la scène, trois qualités de réception (vidéo, voix seule, voix et image fixe). Aucun investissement matériel.
+- **🎯 Un périmètre assumé** : la salle directe pour la dizaine (réunions de formateurs, référents, inspection, pilotage) ; les gradins pour la centaine, à constater en pilote par paliers de vingt, cinquante puis cent personnes. Le millier viendra avec l'entraide entre postes d'un même établissement.
+- **🗣️ Des limites dites plutôt que cachées** : six à douze participants confortables en salle, cinq à douze secondes de retard dans les gradins, une séance qui transite par la plateforme dès que les gradins sont ouverts, puis certains réseaux mobiles qui empêchent la liaison directe. Un relais TURN règle ce dernier cas au prix d'une machine à administrer et d'une bande passante à financer, pas d'un simple réglage. Le guide du formateur le dit en premier.
+- **🧭 Une trajectoire connue** : sans machine nouvelle, l'entraide entre postes d'un même établissement ; le jour où une machine de l'État existe, un relais TURN puis un serveur de diffusion libre (Jitsi ou Galène, en SFU) pour la scène elle-même.
 
 ---
 
 ## Comment il a été construit
 
-Trois sprints avec une équipe multidisciplinaire : un cadrage qui fixe d'abord le contrat d'interfaces entre les lots ; trois lots construits en parallèle (le dos de la plateforme, la façade de la salle, l'ingénierie pédagogique et ses guides) ; l'intégration, la recette à deux navigateurs et une revue de sécurité adversariale, dont les quatre correctifs ont été appliqués avant tout dépôt.
+Des sprints courts avec une équipe multidisciplinaire : un cadrage qui fixe d'abord le contrat d'interfaces entre les lots ; des lots construits en parallèle (le dos de la plateforme, la façade de la salle, celle des gradins, l'ingénierie pédagogique et ses guides) ; l'intégration, la recette à deux navigateurs et une revue de sécurité adversariale à chaque version, dont les correctifs ont été appliqués avant tout dépôt.
+
+Pour la version 0.2, trois expertises ont précédé le code : une étude d'architecture comparant cinq options, une maquette mesurée de faisabilité et un relevé du serveur en lecture seule. Le relais en arbre entre participants a été écarté par le calcul, pas par principe.
 
 ---
 
